@@ -2,7 +2,7 @@
   "include_versions": [],
   "exclude_versions": [],
   "max_releases_per_version": 2,
-  "include_components": ["runtime","windowsdesktop"],
+  "include_components": ["runtime","windowsdesktop","sdk"],
   "exclude_files": [
     ".*-linux-.*"
   ],
