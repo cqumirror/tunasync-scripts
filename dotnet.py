@@ -10,6 +10,7 @@ import json
 import logging
 import os
 import re
+import subprocess
 import tempfile
 import hashlib
 from pathlib import Path
@@ -30,6 +31,10 @@ BASE_URL = os.getenv("TUNASYNC_UPSTREAM_URL", "https://builds.dotnet.microsoft.c
 DEFAULT_INDEX_URL = BASE_URL+"/release-metadata/releases-index.json"
 UA = "cqu-dotnet-release-downloader/1.0 (+https://mirrors.cqu.edu.cn)"
 TIMEOUT = (30, 60)
+
+
+class HashMismatchError(Exception):
+    pass
 
 
 def _verify_file_hash(file_path: Path, expected_hash: str) -> bool:
@@ -77,13 +82,24 @@ class DotNetMirror:
         # Wait for all downloads
         results, _ = concurrent.futures.wait(self.futures)
         self.executor.shutdown()
-        success = all(r.result() for r in results)
+        success = True
+        hash_mismatch = False
+        for future in results:
+            try:
+                success = future.result() and success
+            except HashMismatchError:
+                hash_mismatch = True
+                success = False
+            except Exception:
+                success = False
 
         # Clean up old files
         if self.config.get("cleanup", True):
             self._cleanup_old_files()
 
-        return success
+        if hash_mismatch:
+            return 24
+        return 0 if success else 1
 
     def _filter_channels(self, channels: List[Dict]) -> List[Dict]:
         """Filter channels based on config"""
@@ -275,7 +291,7 @@ class DotNetMirror:
                     # Verify hash (SHA512)
                     if expected_hash:
                         if not _verify_file_hash(tmp_file, expected_hash):
-                            raise Exception(f"Hash mismatch for {dst_file.name}")
+                            raise HashMismatchError(f"Hash mismatch for {dst_file.name}")
 
                     tmp_file.chmod(0o644)
                     tmp_file.replace(dst_file)
@@ -284,6 +300,11 @@ class DotNetMirror:
                 finally:
                     if tmp_file and tmp_file.is_file():
                         tmp_file.unlink()
+        except HashMismatchError as e:
+            logger.error(f"Failed to download {url}: {e}")
+            if dst_file.is_file():
+                dst_file.unlink()
+            raise
         except Exception as e:
             logger.error(f"Failed to download {url}: {e}")
             if dst_file.is_file():
@@ -399,10 +420,14 @@ def main():
         fast_skip=args.fast_skip,
     )
 
-    success = mirror.run()
-    if not success:
+    exit_code = mirror.run()
+
+    total_size = subprocess.check_output(["du", "-sh", str(working_dir)], text=True).split()[0]
+    logger.info(f"Total size is {total_size}")
+
+    if exit_code != 0:
         logger.error("Sync completed with errors")
-        exit(1)
+        exit(exit_code)
 
     logger.info("Sync completed successfully")
 
