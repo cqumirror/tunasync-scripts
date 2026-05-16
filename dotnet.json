@@ -1,0 +1,12 @@
+{
+  "include_versions": [],
+  "exclude_versions": [],
+  "max_releases_per_version": 2,
+  "include_components": ["runtime","windowsdesktop"],
+  "exclude_files": [
+    ".*-linux-.*"
+  ],
+  "include_eol": true,
+  "include_pre_release": true,
+  "cleanup": true
+}
