@@ -422,7 +422,7 @@ def main():
 
     exit_code = mirror.run()
 
-    total_size = subprocess.check_output(["du", "-sh", str(working_dir)], text=True).split()[0]
+    total_size = subprocess.check_output(["du", "-shL", str(working_dir)], text=True).split()[0]
     logger.info(f"Total size is {total_size}")
 
     if exit_code != 0:

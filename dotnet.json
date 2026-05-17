@@ -1,10 +1,13 @@
 {
   "include_versions": [],
   "exclude_versions": [],
-  "max_releases_per_version": 2,
+  "max_releases_per_version": 1,
   "include_components": ["runtime","windowsdesktop","sdk"],
   "exclude_files": [
-    ".*-linux-.*"
+    ".*-linux-.*",
+    "\\.tar\\.gz$",
+    "\\.tar\\.xz$",
+    "\\.zip$"
   ],
   "include_eol": true,
   "include_pre_release": true,
