@@ -157,5 +157,12 @@
         "tarball": false,
         "pre_release": false,
         "flat": false
+    },
+    {
+        "repo": "deepin-community/deepin-WSL",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": true,
+        "flat": true
     }
 ]
