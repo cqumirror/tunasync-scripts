@@ -1,0 +1,44 @@
+{
+  "repositories": [
+    {
+      "name": "esp-idf",
+      "upstream": "https://github.com/espressif/esp-idf.git",
+      "generated_script": "scripts/esp-idf.sh"
+    },
+    {
+      "name": "esptool",
+      "upstream": "https://github.com/espressif/esptool.git",
+      "generated_script": "scripts/esptool.sh"
+    },
+    {
+      "name": "esp-at",
+      "upstream": "https://github.com/espressif/esp-at.git",
+      "generated_script": "scripts/esp-at.sh"
+    },
+    {
+      "name": "esp-toolchain",
+      "upstream": "https://github.com/espressif/esp-toolchain.git",
+      "generated_script": "scripts/esp-toolchain.sh"
+    },
+    {
+      "name": "esp-dl",
+      "upstream": "https://github.com/espressif/esp-dl.git",
+      "generated_script": "scripts/esp-dl.sh"
+    },
+    {
+      "name": "esp-ppq",
+      "upstream": "https://github.com/espressif/esp-ppq.git",
+      "generated_script": "scripts/esp-ppq.sh"
+    },
+    {
+      "name": "esp-skainet",
+      "upstream": "https://github.com/espressif/esp-skainet.git",
+      "generated_script": "scripts/esp-skainet.sh"
+    },
+    {
+      "name": "esp-drone",
+      "upstream": "https://github.com/espressif/esp-drone.git",
+      "generated_script": "scripts/esp-drone.sh"
+    }
+  ]
+}
