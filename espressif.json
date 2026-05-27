@@ -1,6 +1,11 @@
 {
   "repositories": [
     {
+      "name": "arduino-esp32",
+      "upstream": "https://gitee.com/EspressifSystems/arduino-esp32.git",
+      "generated_script": "scripts/arduino-esp32.sh"
+    },
+    {
       "name": "esp-idf",
       "upstream": "https://github.com/espressif/esp-idf.git",
       "generated_script": "scripts/esp-idf.sh"

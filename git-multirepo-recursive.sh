@@ -26,5 +26,5 @@ jq -c '.repositories[]' "$CONFIG_FILE" | while read -r repo; do
         echo "Failed to sync" 
     fi
 done
-total_size=$(du -sb "${WORKING_DIR_BASE}"|cut -f1)
-echo "Total size is" $(numfmt --to=iec $total_size)
+size_sum=$(du -sb "${WORKING_DIR_BASE}"|cut -f1)
+echo "size sum:" $(numfmt --to=iec $size_sum)
