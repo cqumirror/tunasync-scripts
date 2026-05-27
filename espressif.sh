@@ -10,7 +10,7 @@ jq -c '.repositories[]' "$CONFIG_FILE" | while read -r repo; do
     upstream=$(echo "$repo" | jq -r '.upstream')
     rel_path=$(echo "$repo" | jq -r '.generated_script')
     
-    export TUNASYNC_WORKING_DIR="${TUNASYNC_WORKING_DIR_BASE}/${name}.git"
+    export TUNASYNC_WORKING_DIR="${TUNASYNC_WORKING_DIR}/${name}.git"
     export GENERATED_SCRIPT="${TUNASYNC_WORKING_DIR}/${rel_path}"
     
     echo "Sync Repo: $name"
