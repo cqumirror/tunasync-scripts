@@ -2,7 +2,7 @@
   "repositories": [
     {
       "name": "arduino-esp32",
-      "upstream": "https://gitee.com/EspressifSystems/arduino-esp32.git",
+      "upstream": "https://github.com/espressif/arduino-esp32.git",
       "generated_script": "scripts/arduino-esp32.sh"
     },
     {
