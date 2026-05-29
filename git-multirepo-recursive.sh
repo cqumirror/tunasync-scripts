@@ -19,7 +19,8 @@ jq -c '.repositories[]' "$CONFIG_FILE" | while read -r repo; do
 
     export TUNASYNC_UPSTREAM_URL="$upstream"
     export RECURSIVE=1
-    export MIRROR_BASE_URL="$MIRROR_BASE_URL"
+    export MIRROR_BASE_URL
+    export WORKING_DIR_BASE
     mkdir -p "$(dirname "$GENERATED_SCRIPT")"
 
     if ! "$SYNC_SCRIPT"; then
