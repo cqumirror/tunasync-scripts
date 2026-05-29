@@ -178,5 +178,12 @@
         "tarball": false,
         "pre_release": false,
         "flat": false
+    },
+    {
+        "repo": "git-for-windows/git",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": false,
+        "flat": true
     }
 ]
