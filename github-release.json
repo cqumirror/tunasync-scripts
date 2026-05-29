@@ -164,5 +164,19 @@
         "tarball": false,
         "pre_release": true,
         "flat": true
+    },
+    {
+        "repo": "Embarcadero/Dev-Cpp",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": false,
+        "flat": false
+    },
+    {
+        "repo": "jmeubank/tdm-gcc",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": false,
+        "flat": false
     }
 ]
