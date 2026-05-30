@@ -44,6 +44,21 @@
       "name": "esp-drone",
       "upstream": "https://github.com/espressif/esp-drone.git",
       "generated_script": "scripts/esp-drone.sh"
+    },
+    {
+      "name": "esp-matter",
+      "upstream": "https://github.com/espressif/esp-matter.git",
+      "generated_script": "scripts/esp-matter.sh"
+    },
+    {
+      "name": "esp-qcloud",
+      "upstream": "https://github.com/espressif/esp-qcloud.git",
+      "generated_script": "scripts/esp-qcloud.sh"
+    },
+    {
+      "name": "esp-al-smartliving",
+      "upstream": "https://github.com/espressif/esp-al-smartliving.git",
+      "generated_script": "scripts/esp-al-smartliving.sh"
     }
   ]
 }
