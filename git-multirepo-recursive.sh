@@ -28,4 +28,4 @@ jq -c '.repositories[]' "$CONFIG_FILE" | while read -r repo; do
     fi
 done
 size_sum=$(du -sb "${WORKING_DIR_BASE}"|cut -f1)
-echo "size sum:" $(numfmt --to=iec $size_sum)
+echo "size-pack:" $(numfmt --to=iec $size_sum)
