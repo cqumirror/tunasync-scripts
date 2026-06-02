@@ -1,7 +1,8 @@
 #!/bin/bash
 
+_here=`dirname $(realpath $0)`
 CONFIG_FILE="${1:-repos.json}"
-SYNC_SCRIPT=${TUNASYNC_GIT_RECURSIVE_SCRIPT_PATH:-"./git-recursive.sh"}
+SYNC_SCRIPT=${TUNASYNC_GIT_RECURSIVE_SCRIPT_PATH:-"${_here}/git-recursive.sh"}
 MIRROR_BASE_URL=${MIRROR_BASE_URL:-"https://mirrors.cqu.edu.cn/git/"}
 WORKING_DIR_BASE=${TUNASYNC_WORKING_DIR:-"/data/mirrors/git/"}
 
