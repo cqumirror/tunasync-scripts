@@ -3,7 +3,7 @@
 set -eu
 [[ $DEBUG = true ]] && set -x
 _here=`dirname $(realpath $0)`
-INDEX_DIR="${CRATOS_IO_INDEX_DIR}/index"
+INDEX_DIR="${CRATES_IO_INDEX_DIR}"
 CRATES_DIR="${TUNASYNC_WORKING_DIR}/crates"
 STATE_DIR="${TUNASYNC_WORKING_DIR}/state"
 export GITSYNC_REFLOG_EXPIRE=7.days
