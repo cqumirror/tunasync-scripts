@@ -1,19 +1,24 @@
 {
   "repositories": [
     {
+      "name": "ESP8266_RTOS_SDK",
+      "upstream": "https://github.com/espressif/ESP8266_RTOS_SDK.git",
+      "generated_script": "scripts/ESP8266_RTOS_SDK.sh"
+    },
+    {
       "name": "arduino-esp32",
       "upstream": "https://github.com/espressif/arduino-esp32.git",
       "generated_script": "scripts/arduino-esp32.sh"
     },
     {
-      "name": "esp-idf",
-      "upstream": "https://github.com/espressif/esp-idf.git",
-      "generated_script": "scripts/esp-idf.sh"
+      "name": "connectedhomeip",
+      "upstream": "https://github.com/espressif/connectedhomeip.git",
+      "generated_script": "scripts/connectedhomeip.sh"
     },
     {
-      "name": "esptool",
-      "upstream": "https://github.com/espressif/esptool.git",
-      "generated_script": "scripts/esptool.sh"
+      "name": "esp-ali-smartliving",
+      "upstream": "https://github.com/espressif/esp-ali-smartliving.git",
+      "generated_script": "scripts/esp-ali-smartliving.sh"
     },
     {
       "name": "esp-at",
@@ -21,9 +26,19 @@
       "generated_script": "scripts/esp-at.sh"
     },
     {
-      "name": "esp-toolchain",
-      "upstream": "https://github.com/espressif/esp-toolchain.git",
-      "generated_script": "scripts/esp-toolchain.sh"
+      "name": "esp-ble-audio-lib",
+      "upstream": "https://github.com/espressif/esp-ble-audio-lib.git",
+      "generated_script": "scripts/esp-ble-audio-lib.sh"
+    },
+    {
+      "name": "esp-ble-mesh-lib",
+      "upstream": "https://github.com/espressif/esp-ble-mesh-lib.git",
+      "generated_script": "scripts/esp-ble-mesh-lib.sh"
+    },
+    {
+      "name": "esp-coex-lib",
+      "upstream": "https://github.com/espressif/esp-coex-lib.git",
+      "generated_script": "scripts/esp-coex-lib.sh"
     },
     {
       "name": "esp-dl",
@@ -31,19 +46,19 @@
       "generated_script": "scripts/esp-dl.sh"
     },
     {
-      "name": "esp-ppq",
-      "upstream": "https://github.com/espressif/esp-ppq.git",
-      "generated_script": "scripts/esp-ppq.sh"
-    },
-    {
-      "name": "esp-skainet",
-      "upstream": "https://github.com/espressif/esp-skainet.git",
-      "generated_script": "scripts/esp-skainet.sh"
-    },
-    {
       "name": "esp-drone",
       "upstream": "https://github.com/espressif/esp-drone.git",
       "generated_script": "scripts/esp-drone.sh"
+    },
+    {
+      "name": "esp-idf",
+      "upstream": "https://github.com/espressif/esp-idf.git",
+      "generated_script": "scripts/esp-idf.sh"
+    },
+    {
+      "name": "esp-lwip",
+      "upstream": "https://github.com/espressif/esp-lwip.git",
+      "generated_script": "scripts/esp-lwip.sh"
     },
     {
       "name": "esp-matter",
@@ -51,19 +66,104 @@
       "generated_script": "scripts/esp-matter.sh"
     },
     {
+      "name": "esp-mqtt",
+      "upstream": "https://github.com/espressif/esp-mqtt.git",
+      "generated_script": "scripts/esp-mqtt.sh"
+    },
+    {
+      "name": "esp-nimble",
+      "upstream": "https://github.com/espressif/esp-nimble.git",
+      "generated_script": "scripts/esp-nimble.sh"
+    },
+    {
+      "name": "esp-phy-lib",
+      "upstream": "https://github.com/espressif/esp-phy-lib.git",
+      "generated_script": "scripts/esp-phy-lib.sh"
+    },
+    {
+      "name": "esp-ppq",
+      "upstream": "https://github.com/espressif/esp-ppq.git",
+      "generated_script": "scripts/esp-ppq.sh"
+    },
+    {
       "name": "esp-qcloud",
       "upstream": "https://github.com/espressif/esp-qcloud.git",
       "generated_script": "scripts/esp-qcloud.sh"
     },
     {
-      "name": "esp-al-smartliving",
-      "upstream": "https://gitee.com/EspressifSystems/esp-ali-smartliving.git",
-      "generated_script": "scripts/esp-al-smartliving.sh"
+      "name": "esp-skainet",
+      "upstream": "https://github.com/espressif/esp-skainet.git",
+      "generated_script": "scripts/esp-skainet.sh"
     },
     {
-      "name": "ESP8266_RTOS_SDK",
-      "upstream": "https://github.com/espressif/ESP8266_RTOS_SDK.git",
-      "generated_script": "scripts/ESP8266_RTOS_SDK.sh"
+      "name": "esp-thread-lib",
+      "upstream": "https://github.com/espressif/esp-thread-lib.git",
+      "generated_script": "scripts/esp-thread-lib.sh"
+    },
+    {
+      "name": "esp32-bt-lib",
+      "upstream": "https://github.com/espressif/esp32-bt-lib.git",
+      "generated_script": "scripts/esp32-bt-lib.sh"
+    },
+    {
+      "name": "esp32-wifi-lib",
+      "upstream": "https://github.com/espressif/esp32-wifi-lib.git",
+      "generated_script": "scripts/esp32-wifi-lib.sh"
+    },
+    {
+      "name": "esp32c2-bt-lib",
+      "upstream": "https://github.com/espressif/esp32c2-bt-lib.git",
+      "generated_script": "scripts/esp32c2-bt-lib.sh"
+    },
+    {
+      "name": "esp32c3-bt-lib",
+      "upstream": "https://github.com/espressif/esp32c3-bt-lib.git",
+      "generated_script": "scripts/esp32c3-bt-lib.sh"
+    },
+    {
+      "name": "esp32c5-bt-lib",
+      "upstream": "https://github.com/espressif/esp32c5-bt-lib.git",
+      "generated_script": "scripts/esp32c5-bt-lib.sh"
+    },
+    {
+      "name": "esp32c6-bt-lib",
+      "upstream": "https://github.com/espressif/esp32c6-bt-lib.git",
+      "generated_script": "scripts/esp32c6-bt-lib.sh"
+    },
+    {
+      "name": "esp32h2-bt-lib",
+      "upstream": "https://github.com/espressif/esp32h2-bt-lib.git",
+      "generated_script": "scripts/esp32h2-bt-lib.sh"
+    },
+    {
+      "name": "esp32h4-bt-lib",
+      "upstream": "https://github.com/espressif/esp32h4-bt-lib.git",
+      "generated_script": "scripts/esp32h4-bt-lib.sh"
+    },
+    {
+      "name": "esp32s31-bt-lib",
+      "upstream": "https://github.com/espressif/esp32s31-bt-lib.git",
+      "generated_script": "scripts/esp32s31-bt-lib.sh"
+    },
+    {
+      "name": "esptool",
+      "upstream": "https://github.com/espressif/esptool.git",
+      "generated_script": "scripts/esptool.sh"
+    },
+    {
+      "name": "mbedtls",
+      "upstream": "https://github.com/espressif/mbedtls.git",
+      "generated_script": "scripts/mbedtls.sh"
+    },
+    {
+      "name": "openthread",
+      "upstream": "https://github.com/espressif/openthread.git",
+      "generated_script": "scripts/openthread.sh"
+    },
+    {
+      "name": "tlsf",
+      "upstream": "https://github.com/espressif/tlsf.git",
+      "generated_script": "scripts/tlsf.sh"
     }
   ]
 }
