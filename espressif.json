@@ -57,8 +57,13 @@
     },
     {
       "name": "esp-al-smartliving",
-      "upstream": "https://github.com/espressif/esp-al-smartliving.git",
+      "upstream": "https://gitee.com/EspressifSystems/esp-ali-smartliving.git",
       "generated_script": "scripts/esp-al-smartliving.sh"
+    },
+    {
+      "name": "ESP8266_RTOS_SDK",
+      "upstream": "https://github.com/espressif/ESP8266_RTOS_SDK.git",
+      "generated_script": "scripts/ESP8266_RTOS_SDK.sh"
     }
   ]
 }
