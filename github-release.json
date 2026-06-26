@@ -185,5 +185,12 @@
         "tarball": false,
         "pre_release": false,
         "flat": true
+    },
+    {
+        "repo": "oven-sh/bun",
+        "versions": 5,
+        "tarball": false,
+        "pre_release": false,
+        "flat": false
     }
 ]
