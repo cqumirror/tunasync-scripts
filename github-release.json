@@ -192,5 +192,12 @@
         "tarball": false,
         "pre_release": false,
         "flat": false
+    },
+    {
+        "repo": "termux/termux-app",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": false,
+        "flat": false
     }
 ]
