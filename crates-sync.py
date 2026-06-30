@@ -153,6 +153,9 @@ def parse_entries_from_git(index_dir: Path, commit: str, index_files):
                 raise RuntimeError(
                     f"invalid git cat-file header for {commit}:{rel}: {header!r}"
                 ) from exc
+            if object_type == b"tree":
+                tqdm.write(f"[WARN] skipping tree object: {commit}:{rel}")
+                continue
             if object_type != b"blob":
                 raise RuntimeError(
                     f"unexpected git object type for {commit}:{rel}: {object_type.decode()}"
