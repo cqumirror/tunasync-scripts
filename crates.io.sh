@@ -13,7 +13,7 @@ mkdir -p "$INDEX_DIR" "$CRATES_DIR" "$STATE_DIR"
 # Reuse the existing crates.io-index image logic, but keep the index checkout
 # separate from crate tarballs to avoid unnecessary git and filesystem churn.
 # If any of these steps fail, the sync script shall be stopped.
-python3 ${_here}/include/ustcmirror-images/crates-io/sync-crates.py \
+python3 ${_here}/sync-crates.py \
     --index "$INDEX_DIR" \
     --crates "$CRATES_DIR" \
     --state "$STATE_DIR" && \
