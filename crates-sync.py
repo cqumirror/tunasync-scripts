@@ -162,7 +162,7 @@ def parse_entries_from_git(index_dir: Path, commit: str, index_files):
                 continue
             if object_type != b"blob":
                 raise RuntimeError(
-                    f"unexpected git object type for {commit}:{rel}: {object_type.decode()}"
+                    f"unexpected git object type for {commit}:{rel}: {object_type!r}"
                 )
 
             size = int(object_size)
