@@ -154,6 +154,10 @@ def parse_entries_from_git(index_dir: Path, commit: str, index_files):
                     f"invalid git cat-file header for {commit}:{rel}: {header!r}"
                 ) from exc
             if object_type == b"tree":
+                size = int(object_size)
+                process.stdout.read(size)
+                if process.stdout.read(1) != b"\n":
+                    pass
                 tqdm.write(f"[WARN] skipping tree object: {commit}:{rel}")
                 continue
             if object_type != b"blob":
