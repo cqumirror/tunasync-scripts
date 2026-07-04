@@ -199,5 +199,12 @@
         "tarball": false,
         "pre_release": false,
         "flat": false
+    },
+    {
+        "repo": "ip7z/7zip",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": false,
+        "flat": false
     }
 ]
