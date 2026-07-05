@@ -129,18 +129,14 @@ def main():
     futures = []
 
     def process_release(
-        release: dict,
-        release_dir: Path,
-        tarball: bool,
-        exclude_regexes: list[str],
-        args,
-        working_dir: Path,
-        executor,
-        futures,
-        remote_filelist,
-    ) -> int:
+            release: dict,
+            release_dir: Path,
+            tarball: bool,
+            exclude_regexes: list[str],
+    ) -> tuple[int, list[str]]:
 
         release_size = 0
+        all_files = [] # 记录所有文件名
         exclude_re = re.compile("|".join(exclude_regexes)) if exclude_regexes else None
 
         if tarball:
@@ -150,6 +146,7 @@ def main():
             ).timestamp()
             dst_file = release_dir / "repo-snapshot.tar.gz"
             remote_filelist.append(dst_file.relative_to(working_dir))
+            all_files.append(dst_file.name)
 
             if dst_file.is_file():
                 logger.info(f"skipping {dst_file.relative_to(working_dir)}")
@@ -202,7 +199,7 @@ def main():
                 )
             )
 
-        return release_size
+        return release_size, all_files
 
     def download_file(
         url: str, dst_file: Path, working_dir: Path, updated: float, remote_size: int
@@ -293,28 +290,16 @@ def main():
                     if len(name) == 0:
                         logger.error("Unnamed release")
                         continue
-                    total_size += process_release(
-                        release,
-                        (repo_dir if flat else repo_dir / name),
-                        tarball,
-                        exclude_regexes,
-                    )
-                    version = release.get("name") or release.get("tag_name")
-                    tag = release.get("tag_name")
-
-                    # 获取该 release 的所有文件
                     release_size, all_files = process_release(
                         release,
                         (repo_dir if flat else repo_dir / name),
                         tarball,
                         exclude_regexes,
-                        args,
-                        working_dir,
-                        executor,
-                        futures,
-                        remote_filelist,
                     )
                     total_size += release_size
+
+                    version = release.get("name") or release.get("tag_name")
+                    tag = release.get("tag_name")
 
                     # 记录 release 信息（所有文件）
                     if all_files:
@@ -354,7 +339,7 @@ def main():
     # 保存 manifest
     try:
         with open(RELEASE_MANIFEST, 'w', encoding='utf-8') as f:
-            json.dump(RELEASE_MANIFEST, f, indent=2, ensure_ascii=False)
+            json.dump(download_manifest, f, indent=2, ensure_ascii=False)
         logger.info(f"Download manifest saved to {RELEASE_MANIFEST}")
     except Exception as e:
         logger.error(f"Failed to save download manifest: {e}")
