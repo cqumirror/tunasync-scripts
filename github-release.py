@@ -173,7 +173,7 @@ def main():
             remote_filelist.append(dst_file.relative_to(working_dir))
             remote_size = asset["size"]
             release_size += remote_size
-
+            all_files.append(dst_file.name)
             if dst_file.is_file():
                 if args.fast_skip:
                     logger.info(f"fast skipping {dst_file.relative_to(working_dir)}")
@@ -302,22 +302,21 @@ def main():
                     tag = release.get("tag_name")
 
                     # 记录 release 信息（所有文件）
-                    if all_files:
-                        release_info = {
-                            "version": version,
-                            "tag": tag,
-                            "files": all_files,
-                            "published_at": release.get("published_at"),
-                            "prerelease": release.get("prerelease", False)
-                        }
-                        download_manifest[repo]["releases"].append(release_info)
+                    release_info = {
+                        "version": version,
+                        "tag": tag,
+                        "files": all_files,
+                        "published_at": release.get("published_at"),
+                        "pre_release": release.get("prerelease", False)
+                    }
+                    download_manifest[repo]["releases"].append(release_info)
 
-                        # 记录最新版本（第一个非预发布版本）
-                        if download_manifest[repo]["latest"] is None and not release.get("prerelease", False):
-                            download_manifest[repo]["latest"] = {
-                                "version": version,
-                                "tag": tag
-                            }
+                    # 记录最新版本（第一个非预发布版本）
+                    if download_manifest[repo]["latest"] is None and not release.get("prerelease", False):
+                        download_manifest[repo]["latest"] = {
+                            "version": version,
+                            "tag": tag
+                        }
                     if n_downloaded == 0 and not flat:
                         # create a symbolic link to the latest release folder
                         link_latest(name, repo_dir)
