@@ -24,6 +24,7 @@ logger.addHandler(handler)
 BASE_URL = os.getenv("TUNASYNC_UPSTREAM_URL", "https://api.github.com/repos/")
 WORKING_DIR = os.getenv("TUNASYNC_WORKING_DIR")
 CONFIG = os.getenv("GITHUB_RELEASE_CONFIG", "github-release.json")
+RELEASE_MANIFEST = os.getenv("RELEASE_MANIFEST", "release-manifest.json")
 REPOS = []
 UA = "cqu-github-release-mirror/0.0 (+https://mirrors.cqu.edu.cn)"
 
@@ -119,6 +120,8 @@ def main():
     remote_filelist = []
     cleaning = False
 
+    download_manifest = {}
+
     with open(args.config, "r") as f:
         REPOS = json.load(f)
 
@@ -130,6 +133,11 @@ def main():
         release_dir: Path,
         tarball: bool,
         exclude_regexes: list[str],
+        args,
+        working_dir: Path,
+        executor,
+        futures,
+        remote_filelist,
     ) -> int:
 
         release_size = 0
@@ -234,7 +242,18 @@ def main():
 
         repo_dir = working_dir / Path(repo)
         logger.info(f"syncing {repo} to {repo_dir}")
-
+        # 初始化 manifest
+        if repo not in download_manifest:
+            download_manifest[repo] = {
+                "config": {
+                    "flat": flat,
+                    "tarball": tarball,
+                    "pre_release": prerelease,
+                    "versions": versions
+                },
+                "releases": [],
+                "latest": None  # 记录最新版本
+            }
         def release_generator():
             url = ""
             if perpage > 0:
@@ -280,6 +299,40 @@ def main():
                         tarball,
                         exclude_regexes,
                     )
+                    version = release.get("name") or release.get("tag_name")
+                    tag = release.get("tag_name")
+
+                    # 获取该 release 的所有文件
+                    release_size, all_files = process_release(
+                        release,
+                        (repo_dir if flat else repo_dir / name),
+                        tarball,
+                        exclude_regexes,
+                        args,
+                        working_dir,
+                        executor,
+                        futures,
+                        remote_filelist,
+                    )
+                    total_size += release_size
+
+                    # 记录 release 信息（所有文件）
+                    if all_files:
+                        release_info = {
+                            "version": version,
+                            "tag": tag,
+                            "files": all_files,
+                            "published_at": release.get("published_at"),
+                            "prerelease": release.get("prerelease", False)
+                        }
+                        download_manifest[repo]["releases"].append(release_info)
+
+                        # 记录最新版本（第一个非预发布版本）
+                        if download_manifest[repo]["latest"] is None and not release.get("prerelease", False):
+                            download_manifest[repo]["latest"] = {
+                                "version": version,
+                                "tag": tag
+                            }
                     if n_downloaded == 0 and not flat:
                         # create a symbolic link to the latest release folder
                         link_latest(name, repo_dir)
@@ -298,7 +351,13 @@ def main():
     results, _ = concurrent.futures.wait(futures)
     executor.shutdown()
     all_success = all([r.result() for r in results])
-
+    # 保存 manifest
+    try:
+        with open(RELEASE_MANIFEST, 'w', encoding='utf-8') as f:
+            json.dump(RELEASE_MANIFEST, f, indent=2, ensure_ascii=False)
+        logger.info(f"Download manifest saved to {RELEASE_MANIFEST}")
+    except Exception as e:
+        logger.error(f"Failed to save download manifest: {e}")
     # XXX: this does not work because `cleaning` is always False when `REPO`` is not empty
     if cleaning:
         local_filelist: list[Path] = []
