@@ -241,15 +241,20 @@ def main():
         logger.info(f"syncing {repo} to {repo_dir}")
         # 初始化 manifest
         if repo not in download_manifest:
+            config_data = {
+                "flat": flat,
+                "tarball": tarball,
+                "pre_release": prerelease,
+                "versions": versions
+            }
+            if "name" in cfg:
+                config_data["name"] = cfg["name"]
+            if "desc" in cfg:
+                config_data["desc"] = cfg["desc"]
             download_manifest[repo] = {
-                "config": {
-                    "flat": flat,
-                    "tarball": tarball,
-                    "pre_release": prerelease,
-                    "versions": versions
-                },
+                "config": config_data,
                 "releases": [],
-                "latest": None  # 记录最新版本
+                "latest": None
             }
         def release_generator():
             url = ""
