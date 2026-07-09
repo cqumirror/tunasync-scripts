@@ -251,6 +251,8 @@ def main():
                 config_data["name"] = cfg["name"]
             if "desc" in cfg:
                 config_data["desc"] = cfg["desc"]
+            if "popular" in cfg:
+                config_data["popular"] = cfg["popular"]
             download_manifest[repo] = {
                 "config": config_data,
                 "releases": [],

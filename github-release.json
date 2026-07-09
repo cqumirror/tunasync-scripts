@@ -1,18 +1,23 @@
 [
     {
         "repo": "YerongAI/Office-Tool",
+        "name": "Office Tool Plus",
+        "desc": "一个强大且实用的 Office 部署与管理工具。",
         "versions": 3,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
-
     {
         "repo": "obsproject/obs-studio",
+        "name": "OBS Studio",
+        "desc": "免费开源的跨平台视频直播录制与屏幕捕捉软件。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
         "flat": false,
+        "popular": true,
         "exclude": [
             "\\.zip$",
             "\\.ddeb$",
@@ -23,10 +28,13 @@
     },
     {
         "repo": "balena-io/etcher",
+        "name": "balenaEtcher",
+        "desc": "安全易用的跨平台 OS 镜像烧录工具，支持将镜像写入 SD 卡或 USB 驱动器。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
         "flat": false,
+        "popular": true,
         "exclude": [
             "\\.zip$",
             "\\.json$",
@@ -36,6 +44,8 @@
     },
     {
         "repo": "lxgw/LxgwWenKai",
+        "name": "霞鹜文楷",
+        "desc": "基于 Klee One 的开源中文字体，兼有仿宋和楷体特点，可读性高，免费可商用。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -43,6 +53,8 @@
     },
     {
         "repo": "lxgw/LxgwWenKai-Screen",
+        "name": "霞鹜文楷 屏幕阅读版",
+        "desc": "霞鹜文楷的屏幕舒适阅读版本，针对 PC 和 Android 屏幕优化了字重与显示效果。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -50,6 +62,8 @@
     },
     {
         "repo": "lxgw/LxgwWenKai-Lite",
+        "name": "霞鹜文楷 Lite",
+        "desc": "霞鹜文楷的轻量版本，在保留核心字符集的基础上减小了字体体积。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -57,6 +71,8 @@
     },
     {
         "repo": "lxgw/LxgwWenkaiGB",
+        "name": "霞鹜文楷 GB",
+        "desc": "霞鹜文楷的 GB 版本，调整字形和笔形，符合 G 源字形规范。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -64,6 +80,8 @@
     },
     {
         "repo": "lxgw/LxgwWenkaiTC",
+        "name": "霞鹜文楷 TC",
+        "desc": "霞鹜文楷的繁体中文版本，补全了繁体字及港台异体字。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -71,6 +89,8 @@
     },
     {
         "repo": "atelier-anchor/smiley-sans",
+        "name": "得意黑",
+        "desc": "一款在人文观感和几何特征中寻找平衡的中文黑体，字身窄而斜，开源免费可商用。",
         "versions": 3,
         "tarball": false,
         "pre_release": false,
@@ -78,20 +98,28 @@
     },
     {
         "repo": "microsoft/WSL",
+        "name": "Windows Subsystem for Linux",
+        "desc": "Microsoft 开发的 Windows 功能，允许开发者直接在 Windows 上运行 GNU/Linux 环境。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": true
+        "flat": true,
+        "popular": true
     },
     {
         "repo": "mofeng-git/One-KVM",
+        "name": "One-KVM",
+        "desc": "基于廉价硬件和 PiKVM 软件的 BIOS 级远程控制方案，实现 IP-KVM 功能。",
         "versions": 3,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
     {
         "repo": "viarotel-org/escrcpy",
+        "name": "Escrcpy",
+        "desc": "基于 Electron 的 Scrcpy 图形界面工具，跨平台远程控制安卓手机。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -104,27 +132,35 @@
     },
     {
         "repo": "niXman/mingw-builds-binaries",
-        "versions": 1,
-        "tarball": false,
-        "pre_release": false,
-        "flat": true
-    },
-    {
-        "repo": "msys2/msys2-installer",
+        "name": "MinGW-Builds",
+        "desc": "为 Windows 平台提供预编译的 GCC 编译器工具链，解压即用。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
         "flat": true,
+        "popular": true
+    },
+    {
+        "repo": "msys2/msys2-installer",
+        "name": "MSYS2 Installer",
+        "desc": "MSYS2 的官方 GUI 安装程序，提供类 Unix 开发环境与 Pacman 包管理器。",
+        "versions": 1,
+        "tarball": false,
+        "pre_release": false,
+        "flat": true,
+        "popular": true,
         "exclude": [
             "\\.sig$",
             "\\.zst$",
             "\\.sha256$",
-	    "\\.txt$",
-	    "\\.xz$"
+            "\\.txt$",
+            "\\.xz$"
         ]
     },
     {
         "repo": "LanRhyme/MicYou",
+        "name": "MicYou",
+        "desc": "将 Android 设备转变为 PC 高质量麦克风的跨平台工具，支持 Wi-Fi、USB 和蓝牙连接。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -132,6 +168,8 @@
     },
     {
         "repo": "Alan-CRL/Inkeys",
+        "name": "智绘教 Inkeys",
+        "desc": "免费开源的 Windows 屏幕批注工具，适用于教学授课、远程演示等场景。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -139,6 +177,8 @@
     },
     {
         "repo": "ClassIsland/ClassIsland",
+        "name": "ClassIsland",
+        "desc": "适用于班级多媒体屏幕的课表信息显示工具，灵感源于 iOS 灵动岛。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
@@ -146,20 +186,28 @@
     },
     {
         "repo": "arduino/arduino-ide",
+        "name": "Arduino IDE",
+        "desc": "Arduino 官方集成开发环境，用于编写程序并上传至 Arduino 开发板。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
     {
         "repo": "espressif/idf-im-ui",
+        "name": "ESP-IDF Installation Manager",
+        "desc": "乐鑫官方跨平台 GUI 工具，用于安装和管理 ESP-IDF 物联网开发框架。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
     {
         "repo": "deepin-community/deepin-WSL",
+        "name": "deepin WSL",
+        "desc": "deepin 社区推出的 WSL 发行版，可在 Windows 上运行 deepin 命令行环境。",
         "versions": 1,
         "tarball": false,
         "pre_release": true,
@@ -167,27 +215,38 @@
     },
     {
         "repo": "Embarcadero/Dev-Cpp",
+        "name": "Embarcadero Dev-C++",
+        "desc": "快速、轻量、免费的 C/C++ 集成开发环境，使用 MinGW GCC 作为编译器。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
     {
         "repo": "jmeubank/tdm-gcc",
+        "name": "TDM-GCC",
+        "desc": "Windows 友好的 GCC 编译器套件，编译的程序无需依赖额外 DLL。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
     {
         "repo": "git-for-windows/git",
+        "name": "Git for Windows",
+        "desc": "将 Git SCM 完整功能带到 Windows 平台的轻量级工具集，提供 Git Bash 和 Git GUI。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": true
+        "flat": true,
+        "popular": true
     },
     {
         "repo": "oven-sh/bun",
+        "name": "Bun",
+        "desc": "极速的 JavaScript 全家桶工具——运行时、打包器、测试运行器和包管理器合而为一。",
         "versions": 5,
         "tarball": false,
         "pre_release": false,
@@ -195,16 +254,22 @@
     },
     {
         "repo": "termux/termux-app",
+        "name": "Termux",
+        "desc": "Android 终端模拟器与 Linux 环境，可在手机上运行大量 Linux 命令行工具。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     },
     {
         "repo": "ip7z/7zip",
+        "name": "7-Zip",
+        "desc": "高压缩比的开源文件压缩与解压工具，支持 7z、ZIP、RAR 等多种格式。",
         "versions": 1,
         "tarball": false,
         "pre_release": false,
-        "flat": false
+        "flat": false,
+        "popular": true
     }
 ]
