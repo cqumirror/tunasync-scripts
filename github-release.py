@@ -236,7 +236,19 @@ def main():
         prerelease = cfg.get("pre_release", False)  # include pre-releases
         perpage = cfg.get("per_page", 0)  # number of releases per page
         exclude_regexes = cfg.get("exclude", [])  # list of file name regexes to exclude
-
+        
+        # 获取项目logo信息
+        repo_info_url = f"{args.base_url}{repo}"
+        avatar_url = None
+        try:
+            r = github_get(repo_info_url)
+            r.raise_for_status()
+            repo_info = r.json()
+            # owner 总是存在，若仓库属于组织则 owner 即组织
+            avatar_url = repo_info.get("owner", {}).get("avatar_url")
+        except Exception as e:
+            logger.warning(f"Failed to fetch repo info for {repo}: {e}")
+        
         repo_dir = working_dir / Path(repo)
         logger.info(f"syncing {repo} to {repo_dir}")
         # 初始化 manifest
