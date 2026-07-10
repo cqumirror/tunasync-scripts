@@ -236,7 +236,7 @@ def main():
         prerelease = cfg.get("pre_release", False)  # include pre-releases
         perpage = cfg.get("per_page", 0)  # number of releases per page
         exclude_regexes = cfg.get("exclude", [])  # list of file name regexes to exclude
-        
+
         # 获取项目logo信息
         repo_info_url = f"{args.base_url}{repo}"
         avatar_url = None
@@ -257,7 +257,8 @@ def main():
                 "flat": flat,
                 "tarball": tarball,
                 "pre_release": prerelease,
-                "versions": versions
+                "versions": versions,
+                "avatar_url": avatar_url
             }
             if "name" in cfg:
                 config_data["name"] = cfg["name"]
