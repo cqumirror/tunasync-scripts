@@ -15,6 +15,7 @@
 #TSUMUGU_DELAY_UPDATE=
 
 set -eu
+DEBUG=${DEBUG:-false}
 [[ $DEBUG = true ]] && set -x
 
 UPSTREAM=${TUNASYNC_UPSTREAM_URL:-}
