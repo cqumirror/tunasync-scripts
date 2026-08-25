@@ -271,5 +271,10 @@
         "pre_release": false,
         "flat": false,
         "popular": true
+    },
+    {
+        "repo": "Vanilla-OS/live-iso",
+        "versions": 1,
+        "flat": true
     }
 ]
